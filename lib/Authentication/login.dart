@@ -21,24 +21,24 @@ class _LoginScreenState extends State<LoginScreen> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   String authToken = randomAlphaNumeric(20);
-  void login() async {
-    EasyLoading.show(status: "Logging in ....");
-    String username = usernameController.text.trim();
-    String password = passwordController.text.trim();
-    Map<String, dynamic>? user =
-        await DatabaseHelper().getUserByUsernameAndPassword(username, password);
+  // void login() async {
+  //   EasyLoading.show(status: "Logging in ....");
+  //   String username = usernameController.text.trim();
+  //   String password = passwordController.text.trim();
+  //   Map<String, dynamic>? user =
+  //       await DatabaseHelper().getUserByUsernameAndPassword(username, password);
 
-    if (user != null) {
-      // Login successful, navigate to another screen or perform other actions
+  //   if (user != null) {
+  //     // Login successful, navigate to another screen or perform other actions
 
-      EasyLoading.showSuccess('Login successful! User: ${user['username']}');
-      Get.offAll(() => Dashboard());
-    } else {
-      // Invalid login, display error message
+  //     EasyLoading.showSuccess('Login successful! User: ${user['username']}');
+  //     Get.offAll(() => Dashboard());
+  //   } else {
+  //     // Invalid login, display error message
 
-      EasyLoading.showError('Invalid username or password.');
-    }
-  }
+  //     EasyLoading.showError('Invalid username or password.');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
           CustomButton(
               title: "Login",
               onTap: () {
-                login();
+                // login();
               },
               color: mainColor),
           SizedBox(
