@@ -72,7 +72,9 @@ class _DashboardState extends State<Dashboard> {
             title: Text("Bugs"),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              DatabaseHelper().deleteDatabaseExample();
+            },
             title: Text("Logout"),
           )
         ]),

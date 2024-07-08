@@ -2,6 +2,7 @@ import 'package:app_with_local_database/Authentication/login.dart';
 import 'package:app_with_local_database/Authentication/signup.dart';
 import 'package:app_with_local_database/dashboard.dart';
 import 'package:app_with_local_database/db/_database.dart';
+import 'package:app_with_local_database/views/databaseScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/route_manager.dart';
@@ -11,7 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sp = await SharedPreferences.getInstance();
   await DatabaseHelper().initDb();
-  await DatabaseHelper().initProductDB();
+  await DatabaseHelper().initDatabase();
   runApp(const MyApp());
 }
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Dashboard(),
+      home: const DatabaseTable(),
     );
   }
 }
